@@ -10,8 +10,8 @@ public class MessageWindow extends Window {
     public MessageWindow(String text) {
         setModal(true);
         center();
-        setWidth("28%");
-        setHeight("18%");
+        setWidth("35%");
+        setHeight("25%");
         setClosable(false);
         setResizable(false);
 

@@ -25,16 +25,20 @@ import static com.haulmont.testtask.dao.PatientDAO.readPatientByParams;
  */
 public class AddWindow extends Window {
 
-    /*
-     * Конструктор для пациента
-     */
-    public AddWindow(PatientGrid patientGrid) {
+    private AddWindow() {
         setClosable(false);
         setResizable(false);
         setModal(true);
         center();
-        setWidth("20%");
-        setHeight("35%");
+    }
+
+    /*
+     * Конструктор для пациента
+     */
+    public AddWindow(PatientGrid patientGrid) {
+        this();
+        setWidth("25%");
+        setHeight("40%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -93,12 +97,9 @@ public class AddWindow extends Window {
      * Конструктор для врача
      */
     public AddWindow(DoctorGrid doctorGrid) {
-        setClosable(false);
-        setResizable(false);
-        setModal(true);
-        center();
-        setWidth("20%");
-        setHeight("35%");
+        this();
+        setWidth("25%");
+        setHeight("40%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -157,12 +158,9 @@ public class AddWindow extends Window {
      * Конструктор для рецепта
      */
     public AddWindow(PrescriptionGrid prescriptionGrid) {
-        setClosable(false);
-        setResizable(false);
-        setModal(true);
-        center();
-        setWidth("30%");
-        setHeight("55%");
+        this();
+        setWidth("35%");
+        setHeight("60%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();

@@ -12,13 +12,17 @@ import com.vaadin.ui.*;
 
 public class DeleteWindow extends Window {
 
-    public DeleteWindow(PatientGrid patientGrid, Patient selected) {
+    private DeleteWindow() {
         setModal(true);
         center();
-        setWidth("20%");
-        setHeight("15%");
+        setWidth("25%");
+        setHeight("20%");
         setClosable(false);
         setResizable(false);
+    }
+
+    public DeleteWindow(PatientGrid patientGrid, Patient selected) {
+        this();
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -54,12 +58,7 @@ public class DeleteWindow extends Window {
     }
 
     public DeleteWindow(DoctorGrid doctorGrid, Doctor selected) {
-        setModal(true);
-        center();
-        setWidth("20%");
-        setHeight("15%");
-        setClosable(false);
-        setResizable(false);
+        this();
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
@@ -95,12 +94,7 @@ public class DeleteWindow extends Window {
     }
 
     public DeleteWindow(PrescriptionGrid prescriptionGrid, Prescription selected) {
-        setModal(true);
-        center();
-        setWidth("20%");
-        setHeight("15%");
-        setClosable(false);
-        setResizable(false);
+        this();
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();

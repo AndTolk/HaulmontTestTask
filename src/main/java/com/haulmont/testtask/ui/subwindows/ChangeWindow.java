@@ -25,24 +25,30 @@ import static com.haulmont.testtask.dao.PatientDAO.readPatientByParams;
  */
 public class ChangeWindow extends Window {
 
-    /*
-     * Конструктор для пациентат
-     */
-    public ChangeWindow(PatientGrid patientGrid, Patient selected) {
+    private ChangeWindow() {
         setClosable(false);
         setResizable(false);
         setModal(true);
         center();
-        setWidth("20%");
-        setHeight("35%");
+    }
+
+    /*
+     * Конструктор для пациента
+     */
+    public ChangeWindow(PatientGrid patientGrid, Patient selected) {
+        this();
+        setWidth("25%");
+        setHeight("40%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         layout.setMargin(false);
+        setContent(layout);
 
         FormLayout formLayout = new FormLayout();
         formLayout.setSizeFull();
         formLayout.setMargin(true);
+        layout.addComponent(formLayout);
 
         Binder<Patient> binder = new Binder<>();
 
@@ -66,10 +72,10 @@ public class ChangeWindow extends Window {
         binder.forField(phoneNumberField).withValidator(Validator::phoneNumberValidate, "Введены неккоректные данные").bind(Patient::getPhoneNumber, Patient::setPhoneNumber);
         formLayout.addComponent(phoneNumberField);
 
-        formLayout.setMargin(true);
-
         HorizontalLayout buttonLayout = new HorizontalLayout();
         buttonLayout.setSizeFull();
+        layout.addComponent(buttonLayout);
+
         Button changeButton = new Button("ОК");
         changeButton.addClickListener(clickEvent -> {
             if (!binder.isValid())
@@ -87,31 +93,25 @@ public class ChangeWindow extends Window {
         buttonLayout.setComponentAlignment(changeButton, Alignment.MIDDLE_CENTER);
         buttonLayout.setComponentAlignment(cancelButton, Alignment.MIDDLE_CENTER);
         buttonLayout.setMargin(new MarginInfo(true, true, false, false));
-
-        layout.addComponent(formLayout);
-        layout.addComponent(buttonLayout);
-
-        setContent(layout);
     }
 
     /*
      * Конструктор для врачей
      */
     public ChangeWindow(DoctorGrid doctorGrid, Doctor selected) {
-        setClosable(false);
-        setResizable(false);
-        setModal(true);
-        center();
-        setWidth("20%");
-        setHeight("35%");
+        this();
+        setWidth("25%");
+        setHeight("40%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         layout.setMargin(false);
+        setContent(layout);
 
         FormLayout formLayout = new FormLayout();
         formLayout.setSizeFull();
         formLayout.setMargin(true);
+        layout.addComponent(formLayout);
 
         Binder<Doctor> binder = new Binder<>();
 
@@ -139,6 +139,8 @@ public class ChangeWindow extends Window {
 
         HorizontalLayout buttonLayout = new HorizontalLayout();
         buttonLayout.setSizeFull();
+        layout.addComponent(buttonLayout);
+
         Button changeButton = new Button("ОК");
         changeButton.addClickListener(clickEvent -> {
             if (!binder.isValid())
@@ -156,23 +158,15 @@ public class ChangeWindow extends Window {
         buttonLayout.setComponentAlignment(changeButton, Alignment.MIDDLE_CENTER);
         buttonLayout.setComponentAlignment(cancelButton, Alignment.MIDDLE_CENTER);
         buttonLayout.setMargin(new MarginInfo(true, true, false, false));
-
-        layout.addComponent(formLayout);
-        layout.addComponent(buttonLayout);
-
-        setContent(layout);
     }
 
     /*
      * Конструктор для рецептов
      */
     public ChangeWindow(PrescriptionGrid prescriptionGrid, Prescription selected) {
-        setClosable(false);
-        setResizable(false);
-        setModal(true);
-        center();
-        setWidth("30%");
-        setHeight("55%");
+        this();
+        setWidth("35%");
+        setHeight("60%");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
